@@ -2,7 +2,7 @@
 async function loadComponents() {
   try {
     // Load navbar
-    const navbarResponse = await fetch('navbar.html');
+    const navbarResponse = await fetch('components/navbar.html');
     const navbarContent = await navbarResponse.text();
     document.getElementById('navbar-container').innerHTML = navbarContent;
 
@@ -11,7 +11,7 @@ async function loadComponents() {
     let pagesHTML = '';
     
     for (const page of pages) {
-      const response = await fetch(`${page}.html`);
+      const response = await fetch(`pages/${page}.html`);
       const content = await response.text();
       pagesHTML += content;
     }
@@ -19,7 +19,7 @@ async function loadComponents() {
     document.getElementById('pages-container').innerHTML = pagesHTML;
 
     // Load footer
-    const footerResponse = await fetch('footer.html');
+    const footerResponse = await fetch('components/footer.html');
     const footerContent = await footerResponse.text();
     document.getElementById('footer-container').innerHTML = footerContent;
 

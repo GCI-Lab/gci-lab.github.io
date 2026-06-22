@@ -57,8 +57,7 @@
           Our Research Collaborators
         </h2>
         <p class="text-gray-600 max-w-2xl mx-auto">
-          Collaborating with leading institutions worldwide to advance
-          sustainable computing research
+          Collaborating with leading institutions worldwide
         </p>
       </div>
     </div>
@@ -66,113 +65,77 @@
     <div
       class="relative w-full overflow-hidden bg-white/50 backdrop-blur-sm py-8 border-y border-brand-100/50"
     >
-      <div class="animate-marquee-smooth flex w-[200%] shrink-0 gap-8 px-4">
-        <div
-          class="flex items-center justify-center w-1/2 shrink-0"
-          aria-hidden="true"
-        >
-          <div class="flex flex-wrap gap-8 justify-center items-center">
-            <div class="partner-card">
-              <img
-                src="https://mist.ac.bd/assets/30-q2kX7pZF.png"
-                alt="MIST Logo"
-                class="w-16 h-16 rounded-lg object-contain"
-              />
-              <span
-                class="mt-3 font-semibold text-gray-700 text-xs text-center block"
-                >Military Institute of Science and Technology</span
-              >
-            </div>
-            <div class="partner-card">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/en/a/a3/King_Saud_University_logo.png"
-                alt="KSU Logo"
-                class="w-16 h-16 rounded-lg object-contain"
-              />
-              <span
-                class="mt-3 font-semibold text-gray-700 text-xs text-center block"
-                >King Saud University (KSU)</span
-              >
-            </div>
-            <div class="partner-card">
-              <img
-                src="https://yt3.googleusercontent.com/ytc/AIdro_k3BmSvDsqJqzq8qAx5y7A6sJO2M3xh2EvsQYAsuAThcHw=s900-c-k-c0x00ffffff-no-rj"
-                alt="Ontario Tech Logo"
-                class="w-16 h-16 rounded-lg object-contain"
-              />
-              <span
-                class="mt-3 font-semibold text-gray-700 text-xs text-center block"
-                >Ontario Tech University</span
-              >
-            </div>
-            <div class="partner-card">
-              <img
-                src="https://s.research.com/images/institutions/160x160/40545.webp"
-                alt="Prince Sattam bin Abdulaziz University Logo"
-                class="w-16 h-16 rounded-lg object-contain"
-              />
-              <span
-                class="mt-3 font-semibold text-gray-700 text-xs text-center block"
-                >Prince Sattam bin Abdulaziz University</span
-              >
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="flex items-center justify-center w-1/2 shrink-0"
-          aria-hidden="true"
-        >
-          <div class="flex flex-wrap gap-8 justify-center items-center">
-            <div class="partner-card">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/en/d/d0/Islamic_University_of_Technology_%28coat_of_arms%29.png"
-                alt="IUT Logo"
-                class="w-16 h-16 rounded-lg object-contain"
-              />
-              <span
-                class="mt-3 font-semibold text-gray-700 text-xs text-center block"
-                >Islamic University of Technology</span
-              >
-            </div>
-            <div class="partner-card">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/en/4/48/Islamic_University_of_Madinah_Logo.svg"
-                alt="Islamic University of Madinah Logo"
-                class="w-16 h-16 rounded-lg object-contain"
-              />
-              <span
-                class="mt-3 font-semibold text-gray-700 text-xs text-center block"
-                >Islamic University of Madinah</span
-              >
-            </div>
-            <div class="partner-card">
-              <img
-                src="https://vnur.vn/wp-content/uploads/2023/01/19.Nguyen-Tat-Thanh.jpg"
-                alt="Nguyen Tat Thanh University Logo"
-                class="w-16 h-16 rounded-lg object-contain"
-              />
-              <span
-                class="mt-3 font-semibold text-gray-700 text-xs text-center block"
-                >Nguyen Tat Thanh University</span
-              >
-            </div>
-            <div class="partner-card">
-              <img
-                src="https://s.research.com/images/institutions/160x160/40545.webp"
-                alt="Prince Sattam bin Abdulaziz University Logo"
-                class="w-16 h-16 rounded-lg object-contain"
-              />
-              <span
-                class="mt-3 font-semibold text-gray-700 text-xs text-center block"
-                >Prince Sattam bin Abdulaziz University</span
-              >
-            </div>
-          </div>
-        </div>
+      <div class="marquee-wrapper" id="marqueeWrapper">
+        <div class="marquee-track" id="marqueeTrack"></div>
       </div>
     </div>
   </section>
+
+  <template id="partnerTemplate">
+    <div class="partner-card">
+      <img class="partner-logo" alt="" />
+      <span class="partner-name"></span>
+    </div>
+  </template>
+
+  <script>
+    const partners = [
+      {
+        name: "Military Institute of Science and Technology",
+        logo: "https://mist.ac.bd/assets/30-q2kX7pZF.png",
+      },
+      {
+        name: "King Saud University (KSU)",
+        logo: "https://upload.wikimedia.org/wikipedia/en/a/a3/King_Saud_University_logo.png",
+      },
+      {
+        name: "Ontario Tech University",
+        logo: "https://yt3.googleusercontent.com/ytc/AIdro_k3BmSvDsqJqzq8qAx5y7A6sJO2M3xh2EvsQYAsuAThcHw=s900-c-k-c0x00ffffff-no-rj",
+      },
+      {
+        name: "Prince Sattam bin Abdulaziz University",
+        logo: "https://s.research.com/images/institutions/160x160/40545.webp",
+      },
+      {
+        name: "Islamic University of Technology",
+        logo: "https://upload.wikimedia.org/wikipedia/en/d/d0/Islamic_University_of_Technology_%28coat_of_arms%29.png",
+      },
+      {
+        name: "Islamic University of Madinah",
+        logo: "https://upload.wikimedia.org/wikipedia/en/4/48/Islamic_University_of_Madinah_Logo.svg",
+      },
+      {
+        name: "Nguyen Tat Thanh University",
+        logo: "https://vnur.vn/wp-content/uploads/2023/01/19.Nguyen-Tat-Thanh.jpg",
+      },
+      {
+        name: "Prince Sattam bin Abdulaziz University",
+        logo: "https://s.research.com/images/institutions/160x160/40545.webp",
+      },
+    ];
+
+    function initMarquee() {
+      const track = document.getElementById("marqueeTrack");
+      const template = document.getElementById("partnerTemplate");
+      if (!track || !template) return;
+
+      const allPartners = [...partners, ...partners];
+      track.innerHTML = "";
+      allPartners.forEach((partner) => {
+        const clone = template.content.cloneNode(true);
+        clone.querySelector(".partner-logo").src = partner.logo;
+        clone.querySelector(".partner-logo").alt = partner.name;
+        clone.querySelector(".partner-name").textContent = partner.name;
+        track.appendChild(clone);
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initMarquee);
+    } else {
+      initMarquee();
+    }
+  </script>
 
   <!-- Lab Development Roadmap (Home) -->
   <section class="py-20 bg-white">

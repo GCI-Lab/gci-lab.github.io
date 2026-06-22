@@ -22,7 +22,7 @@ body {
     transform 0.4s ease;
 }
 
-/* Continuous Marquee Animation */
+/* Marquee Animation */
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -32,35 +32,29 @@ body {
   }
 }
 
-@keyframes marquee-smooth {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
 }
 
-.animate-marquee {
+.marquee-track {
   display: flex;
-  width: max-content;
-  animation: marquee 25s linear infinite;
+  gap: 2rem;
+  padding: 0 1rem;
+  animation: marquee 40s linear infinite;
+  min-width: max-content;
 }
 
-.animate-marquee:hover {
+.marquee-track:hover {
   animation-play-state: paused;
-  cursor: pointer;
 }
 
-.animate-marquee-smooth {
-  display: flex;
-  width: max-content;
-  animation: marquee-smooth 30s linear infinite;
-}
-
-.animate-marquee-smooth:hover {
-  animation-play-state: paused;
-  cursor: pointer;
+@media (max-width: 640px) {
+  .marquee-track {
+    gap: 1rem;
+    animation-duration: 25s;
+  }
 }
 
 /* Partner Card Styling */
@@ -75,8 +69,9 @@ body {
   border-radius: 0.75rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  min-width: 140px;
+  min-width: 150px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .partner-card:hover {
@@ -90,7 +85,11 @@ body {
   );
 }
 
-.partner-card img {
+.partner-card .partner-logo {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  object-fit: contain;
   filter: grayscale(80%);
   opacity: 0.75;
   transition:
@@ -98,17 +97,40 @@ body {
     opacity 0.3s ease;
 }
 
-.partner-card:hover img {
+.partner-card:hover .partner-logo {
   filter: grayscale(0%);
   opacity: 1;
 }
 
-.partner-card span {
+.partner-card .partner-name {
+  margin-top: 0.75rem;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.75rem;
+  text-align: center;
+  display: block;
   transition: color 0.3s ease;
+  line-height: 1.3;
 }
 
-.partner-card:hover span {
+.partner-card:hover .partner-name {
   color: #15803d;
+}
+
+@media (max-width: 640px) {
+  .partner-card {
+    min-width: 120px;
+    padding: 1rem;
+  }
+
+  .partner-card .partner-logo {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .partner-card .partner-name {
+    font-size: 0.65rem;
+  }
 }
 
 .page-view.active {
