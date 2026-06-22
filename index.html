@@ -47,74 +47,8 @@
 
 <body
   class="text-gray-800 antialiased bg-gray-50 selection:bg-brand-500 selection:text-white flex flex-col min-h-screen">
-  <!-- Navigation -->
-  <nav id="navbar"
-    class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-20">
-        <!-- Logo -->
-        <a href="#home" class="flex-shrink-0 flex items-center gap-3 cursor-pointer nav-link group">
-          <div
-            class="w-10 h-10 bg-brand-600 text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-brand-700 transition-colors">
-            <i data-lucide="leaf"></i>
-          </div>
-          <div>
-            <span class="font-bold text-xl tracking-tight text-gray-900 block leading-tight">GCI Lab</span>
-            <span class="text-xs text-gray-500 font-medium tracking-wider uppercase">United International
-              University</span>
-          </div>
-        </a>
-
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center space-x-2">
-          <a href="#home"
-            class="nav-link px-4 py-2 rounded-md text-gray-600 hover:text-brand-600 hover:bg-brand-50 font-medium transition-colors"
-            data-target="home">Home</a>
-          <a href="#about"
-            class="nav-link px-4 py-2 rounded-md text-gray-600 hover:text-brand-600 hover:bg-brand-50 font-medium transition-colors"
-            data-target="about">About</a>
-          <a href="#research"
-            class="nav-link px-4 py-2 rounded-md text-gray-600 hover:text-brand-600 hover:bg-brand-50 font-medium transition-colors"
-            data-target="research">Research</a>
-          <a href="#team"
-            class="nav-link px-4 py-2 rounded-md text-gray-600 hover:text-brand-600 hover:bg-brand-50 font-medium transition-colors"
-            data-target="team">Team</a>
-          <a href="#publications"
-            class="nav-link px-4 py-2 rounded-md text-gray-600 hover:text-brand-600 hover:bg-brand-50 font-medium transition-colors"
-            data-target="publications">Publications</a>
-        </div>
-
-        <!-- Mobile menu button -->
-        <div class="md:hidden flex items-center">
-          <button id="mobile-menu-btn"
-            class="text-gray-600 hover:text-brand-600 focus:outline-none p-2 bg-gray-100 rounded-md">
-            <i data-lucide="menu" class="h-6 w-6"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
-      <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
-        <a href="#home"
-          class="nav-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md"
-          data-target="home">Home</a>
-        <a href="#about"
-          class="nav-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md"
-          data-target="about">About</a>
-        <a href="#research"
-          class="nav-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md"
-          data-target="research">Research</a>
-        <a href="#team"
-          class="nav-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md"
-          data-target="team">Team</a>
-        <a href="#publications"
-          class="nav-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md"
-          data-target="publications">Publications</a>
-      </div>
-    </div>
-  </nav>
+  <!-- Navigation - Loaded from navbar.html -->
+  <div id="navbar-container"></div>
 
   <!-- MAIN CONTENT CONTAINER (SPA Wrapper) -->
   <main class="flex-grow pt-20">
