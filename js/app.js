@@ -11,12 +11,41 @@ const partners = [
   { name: "Nguyen Tat Thanh University", logo: "https://vnur.vn/wp-content/uploads/2023/01/19.Nguyen-Tat-Thanh.jpg" }
 ];
 
+// ===============================
+// DYNAMIC SEO METADATA CONFIG
+// ===============================
+const PAGE_SEO = {
+  home: {
+    title: "GCI Lab | Green Computing and Interdisciplinary Lab | UIU",
+    description: "Welcome to the Green Computing and Interdisciplinary Lab (GCI Lab) at United International University. Innovating for a sustainable digital future through sustainable IT, climate-aware computing, and eco-friendly AI."
+  },
+  about: {
+    title: "About Us | GCI Lab",
+    description: "Learn about the mission, vision, and interdisciplinary scope of the Green Computing and Interdisciplinary Lab at United International University."
+  },
+  research: {
+    title: "Research Themes | GCI Lab",
+    description: "Explore our research vectors including cloud energy optimization, E-waste tracking, smart sorting AI, and circular ICT systems."
+  },
+  team: {
+    title: "Governance & Leadership Team | GCI Lab",
+    description: "Meet the academic experts and faculty steering sustainable IT research initiatives at the Green Computing and Interdisciplinary Lab."
+  },
+  publications: {
+    title: "Academic Research Publications | GCI Lab",
+    description: "Browse the peer-reviewed journals, articles, and high-impact conference papers produced by members of the GCI Lab."
+  }
+};
+
+// ===============================
+// MARQUEE INITIALIZER
+// ===============================
 function initMarquee() {
   const track = document.getElementById("marqueeTrack");
   const template = document.getElementById("partnerTemplate");
   if (!track || !template) return;
 
-  const allPartners = [...partners, ...partners]; // Seamless infinite loop clone
+  const allPartners = [...partners, ...partners]; 
   track.innerHTML = "";
   allPartners.forEach((partner) => {
     const clone = template.content.cloneNode(true);
@@ -27,62 +56,42 @@ function initMarquee() {
   });
 }
 
-// Smart helper function to handle path fallbacks
-async function safeFetch(primaryPath, fallbackPath) {
-  try {
-    let response = await fetch(primaryPath);
-    if (!response.ok) {
-      response = await fetch(fallbackPath);
-    }
-    if (response.ok) return await response.text();
-  } catch (e) {
-    try {
-      let response = await fetch(fallbackPath);
-      if (response.ok) return await response.text();
-    } catch (err) {
-      console.error(`Could not locate content at ${primaryPath} or ${fallbackPath}`);
-    }
-  }
-  return '';
-}
-
 // ===============================
 // LOAD MODULAR HTML COMPONENTS
 // ===============================
 async function loadComponents() {
   try {
     // 1. Load Navbar
-    const navbarContent = await safeFetch('components/navbar.html', 'navbar.html');
-    const nvContainer = document.getElementById('navbar-container');
-    if (nvContainer) nvContainer.innerHTML = navbarContent;
+    const navbarResponse = await fetch('components/navbar.html');
+    const navbarContent = await navbarResponse.text();
+    document.getElementById('navbar-container').innerHTML = navbarContent;
 
     // 2. Load Sub-Pages Dynamically
     const pages = ['home', 'about', 'research', 'team-publications'];
     let pagesHTML = '';
     
     for (const page of pages) {
-      const content = await safeFetch(`pages/${page}.html`, `${page}.html`);
+      const response = await fetch(`pages/${page}.html`);
+      const content = await response.text();
       pagesHTML += content;
     }
-    const pgContainer = document.getElementById('pages-container');
-    if (pgContainer) pgContainer.innerHTML = pagesHTML;
+    document.getElementById('pages-container').innerHTML = pagesHTML;
 
     // 3. Load Footer
-    const footerContent = await safeFetch('components/footer.html', 'footer.html');
-    const ftContainer = document.getElementById('footer-container');
-    if (ftContainer) ftContainer.innerHTML = footerContent;
+    const footerResponse = await fetch('components/footer.html');
+    const footerContent = await footerResponse.text();
+    document.getElementById('footer-container').innerHTML = footerContent;
 
-    // 4. Initialize elements immediately AFTER HTML exists in the DOM
+    // 4. Run scripts after fragments reside in DOM
     initMarquee();
     
     if (typeof initPublications === 'function') {
       initPublications(); 
     }
 
-    if (window.lucide && typeof window.lucide.createIcons === 'function') {
-      window.lucide.createIcons();
+    if (window.lucide) {
+      lucide.createIcons();
     }
-    
     initializeRouting();
 
   } catch (error) {
@@ -97,43 +106,33 @@ function initializeRouting() {
   const navLinks = document.querySelectorAll(".nav-link");
   const pages = document.querySelectorAll(".page-view");
 
-  // Soft reset visibility defaults
-  pages.forEach(p => p.style.display = "none");
-
   function navigateTo(pageId) {
-    // Hide everything completely via direct inline styles
+    // Hide all pages completely
     pages.forEach((page) => {
-      page.style.display = "none";
       page.classList.remove("active");
     });
 
-    // Locate correct target container handling shared files layout
-    let targetPage = document.getElementById("page-" + pageId);
-    
-    if (!targetPage) {
-      if (pageId === "team" || pageId === "team-publications") {
-        targetPage = document.getElementById("page-team");
-      } else if (pageId === "publications") {
-        targetPage = document.getElementById("page-publications");
-      }
-    }
-
-    // Force visible style declaration directly
+    // Handle separate IDs matching combined file structure view nodes
+    const targetPage = document.getElementById("page-" + pageId);
     if (targetPage) {
-      targetPage.style.display = "block";
       targetPage.classList.add("active");
     } else {
       const homePage = document.getElementById("page-home");
-      if (homePage) {
-        homePage.style.display = "block";
-        homePage.classList.add("active");
+      if (homePage) homePage.classList.add("active");
+    }
+
+    // Dynamic SEO Updates
+    if (PAGE_SEO[pageId]) {
+      document.title = PAGE_SEO[pageId].title;
+      const metaDesc = document.getElementById("meta-description");
+      if (metaDesc) {
+        metaDesc.setAttribute("content", PAGE_SEO[pageId].description);
       }
     }
 
-    // Process styling for Navbar Items
+    // Update Nav Links Styling
     navLinks.forEach((link) => {
-      const targetAttr = link.getAttribute("data-target");
-      if (targetAttr === pageId && link.classList.contains("px-4")) {
+      if (link.getAttribute("data-target") === pageId && link.classList.contains("px-4")) {
         link.classList.add("text-brand-600", "bg-brand-50");
         link.classList.remove("text-gray-600");
       } else if (link.classList.contains("px-4")) {
@@ -145,10 +144,12 @@ function initializeRouting() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
     const mobileMenu = document.getElementById("mobile-menu");
-    if (mobileMenu) mobileMenu.classList.add("hidden");
+    if (mobileMenu) {
+      mobileMenu.classList.add("hidden");
+    }
 
-    if (window.lucide && typeof window.lucide.createIcons === 'function') {
-      window.lucide.createIcons();
+    if (window.lucide) {
+      lucide.createIcons();
     }
   }
 
@@ -173,7 +174,7 @@ function initializeRouting() {
   }
   window.addEventListener("popstate", handleHash);
 
-  // Navbar Layout Effects
+  // Navbar Scroll Background Transition
   const navbar = document.getElementById("navbar");
   if (navbar) {
     window.addEventListener("scroll", () => {
@@ -187,7 +188,7 @@ function initializeRouting() {
     });
   }
 
-  // Mobile drawer trigger
+  // Mobile Menu Drawer Toggle Trigger
   const mobileBtnMenu = document.getElementById("mobile-menu-btn");
   if (mobileBtnMenu) {
     mobileBtnMenu.addEventListener("click", () => {
