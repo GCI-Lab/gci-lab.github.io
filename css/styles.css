@@ -41,7 +41,7 @@ body {
 .marquee-track {
   display: flex;
   gap: 2rem;
-  padding: 0 1rem;
+  padding: 1rem;
   animation: marquee 40s linear infinite;
   min-width: max-content;
 }
@@ -67,7 +67,7 @@ body {
   background: white;
   border: 2px solid transparent;
   border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 150px;
   cursor: pointer;
@@ -75,14 +75,14 @@ body {
 }
 
 .partner-card:hover {
-  border-color: #16a34a;
-  box-shadow: 0 8px 16px rgba(22, 163, 74, 0.15);
+  /* border-color: #16a34a; */
+  /* box-shadow: 0 8px 16px rgba(22, 163, 74, 0.15); */
   transform: translateY(-4px);
-  background: linear-gradient(
+  /* background: linear-gradient(
     135deg,
     rgba(220, 252, 231, 0.5),
     rgba(187, 247, 208, 0.5)
-  );
+  ); */
 }
 
 .partner-card .partner-logo {

@@ -1,63 +1,139 @@
-// --- LOAD MODULAR HTML COMPONENTS ---
+// ===============================
+// PARTNERS DATA FOR MARQUEE
+// ===============================
+const partners = [
+  { name: "Military Institute of Science and Technology", logo: "https://mist.ac.bd/assets/30-q2kX7pZF.png" },
+  { name: "King Saud University (KSU)", logo: "https://upload.wikimedia.org/wikipedia/en/a/a3/King_Saud_University_logo.png" },
+  { name: "Ontario Tech University", logo: "https://yt3.googleusercontent.com/ytc/AIdro_k3BmSvDsqJqzq8qAx5y7A6sJO2M3xh2EvsQYAsuAThcHw=s900-c-k-c0x00ffffff-no-rj" },
+  { name: "Prince Sattam bin Abdulaziz University", logo: "https://s.research.com/images/institutions/160x160/40545.webp" },
+  { name: "Islamic University of Technology", logo: "https://upload.wikimedia.org/wikipedia/en/d/d0/Islamic_University_of_Technology_%28coat_of_arms%29.png" },
+  { name: "Islamic University of Madinah", logo: "https://upload.wikimedia.org/wikipedia/en/4/48/Islamic_University_of_Madinah_Logo.svg" },
+  { name: "Nguyen Tat Thanh University", logo: "https://vnur.vn/wp-content/uploads/2023/01/19.Nguyen-Tat-Thanh.jpg" }
+];
+
+function initMarquee() {
+  const track = document.getElementById("marqueeTrack");
+  const template = document.getElementById("partnerTemplate");
+  if (!track || !template) return;
+
+  const allPartners = [...partners, ...partners]; // Seamless infinite loop clone
+  track.innerHTML = "";
+  allPartners.forEach((partner) => {
+    const clone = template.content.cloneNode(true);
+    clone.querySelector(".partner-logo").src = partner.logo;
+    clone.querySelector(".partner-logo").alt = partner.name;
+    clone.querySelector(".partner-name").textContent = partner.name;
+    track.appendChild(clone);
+  });
+}
+
+// Smart helper function to handle path fallbacks
+async function safeFetch(primaryPath, fallbackPath) {
+  try {
+    let response = await fetch(primaryPath);
+    if (!response.ok) {
+      response = await fetch(fallbackPath);
+    }
+    if (response.ok) return await response.text();
+  } catch (e) {
+    try {
+      let response = await fetch(fallbackPath);
+      if (response.ok) return await response.text();
+    } catch (err) {
+      console.error(`Could not locate content at ${primaryPath} or ${fallbackPath}`);
+    }
+  }
+  return '';
+}
+
+// ===============================
+// LOAD MODULAR HTML COMPONENTS
+// ===============================
 async function loadComponents() {
   try {
-    // Load navbar
-    const navbarResponse = await fetch('components/navbar.html');
-    const navbarContent = await navbarResponse.text();
-    document.getElementById('navbar-container').innerHTML = navbarContent;
+    // 1. Load Navbar
+    const navbarContent = await safeFetch('components/navbar.html', 'navbar.html');
+    const nvContainer = document.getElementById('navbar-container');
+    if (nvContainer) nvContainer.innerHTML = navbarContent;
 
-    // Load pages
+    // 2. Load Sub-Pages Dynamically
     const pages = ['home', 'about', 'research', 'team-publications'];
     let pagesHTML = '';
     
     for (const page of pages) {
-      const response = await fetch(`pages/${page}.html`);
-      const content = await response.text();
+      const content = await safeFetch(`pages/${page}.html`, `${page}.html`);
       pagesHTML += content;
     }
+    const pgContainer = document.getElementById('pages-container');
+    if (pgContainer) pgContainer.innerHTML = pagesHTML;
+
+    // 3. Load Footer
+    const footerContent = await safeFetch('components/footer.html', 'footer.html');
+    const ftContainer = document.getElementById('footer-container');
+    if (ftContainer) ftContainer.innerHTML = footerContent;
+
+    // 4. Initialize elements immediately AFTER HTML exists in the DOM
+    initMarquee();
     
-    document.getElementById('pages-container').innerHTML = pagesHTML;
+    if (typeof initPublications === 'function') {
+      initPublications(); 
+    }
 
-    // Load footer
-    const footerResponse = await fetch('components/footer.html');
-    const footerContent = await footerResponse.text();
-    document.getElementById('footer-container').innerHTML = footerContent;
-
-    // Re-initialize Lucide icons after loading
-    lucide.createIcons();
-
-    // Initialize SPA routing after components are loaded
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+    
     initializeRouting();
+
   } catch (error) {
     console.error('Error loading components:', error);
   }
 }
 
-// --- SPA ROUTING LOGIC ---
+// ===============================
+// SPA ROUTING LOGIC
+// ===============================
 function initializeRouting() {
   const navLinks = document.querySelectorAll(".nav-link");
   const pages = document.querySelectorAll(".page-view");
 
+  // Soft reset visibility defaults
+  pages.forEach(p => p.style.display = "none");
+
   function navigateTo(pageId) {
-    // Hide all pages
+    // Hide everything completely via direct inline styles
     pages.forEach((page) => {
+      page.style.display = "none";
       page.classList.remove("active");
     });
 
-    // Show target page
-    const targetPage = document.getElementById("page-" + pageId);
-    if (targetPage) {
-      targetPage.classList.add("active");
-    } else {
-      document.getElementById("page-home").classList.add("active"); // fallback
+    // Locate correct target container handling shared files layout
+    let targetPage = document.getElementById("page-" + pageId);
+    
+    if (!targetPage) {
+      if (pageId === "team" || pageId === "team-publications") {
+        targetPage = document.getElementById("page-team");
+      } else if (pageId === "publications") {
+        targetPage = document.getElementById("page-publications");
+      }
     }
 
-    // Update Nav Links Styling
+    // Force visible style declaration directly
+    if (targetPage) {
+      targetPage.style.display = "block";
+      targetPage.classList.add("active");
+    } else {
+      const homePage = document.getElementById("page-home");
+      if (homePage) {
+        homePage.style.display = "block";
+        homePage.classList.add("active");
+      }
+    }
+
+    // Process styling for Navbar Items
     navLinks.forEach((link) => {
-      if (
-        link.getAttribute("data-target") === pageId &&
-        link.classList.contains("px-4")
-      ) {
+      const targetAttr = link.getAttribute("data-target");
+      if (targetAttr === pageId && link.classList.contains("px-4")) {
         link.classList.add("text-brand-600", "bg-brand-50");
         link.classList.remove("text-gray-600");
       } else if (link.classList.contains("px-4")) {
@@ -66,33 +142,27 @@ function initializeRouting() {
       }
     });
 
-    // Scroll to top
     window.scrollTo({ top: 0, behavior: "smooth" });
 
-    // Close mobile menu if open
     const mobileMenu = document.getElementById("mobile-menu");
-    if (mobileMenu) {
-      mobileMenu.classList.add("hidden");
-    }
+    if (mobileMenu) mobileMenu.classList.add("hidden");
 
-    // Re-render icons if needed
-    lucide.createIcons();
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
   }
 
-  // Handle clicks on nav links
   navLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       const target = link.getAttribute("data-target");
       if (target) {
-        e.preventDefault(); // Prevent default anchor jump
-        // Update URL Hash without jumping
+        e.preventDefault();
         history.pushState(null, null, "#" + target);
         navigateTo(target);
       }
     });
   });
 
-  // Handle initial load / refresh based on hash
   function handleHash() {
     const hash = window.location.hash.replace("#", "");
     if (hash) {
@@ -103,7 +173,7 @@ function initializeRouting() {
   }
   window.addEventListener("popstate", handleHash);
 
-  // --- Navbar Scroll Effect ---
+  // Navbar Layout Effects
   const navbar = document.getElementById("navbar");
   if (navbar) {
     window.addEventListener("scroll", () => {
@@ -117,17 +187,16 @@ function initializeRouting() {
     });
   }
 
-  // --- Mobile Menu Toggle ---
+  // Mobile drawer trigger
   const mobileBtnMenu = document.getElementById("mobile-menu-btn");
   if (mobileBtnMenu) {
     mobileBtnMenu.addEventListener("click", () => {
-      document.getElementById("mobile-menu").classList.toggle("hidden");
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (mobileMenu) mobileMenu.classList.toggle("hidden");
     });
   }
 
-  // Initialize routing
   handleHash();
 }
 
-// Load components when DOM is ready
 document.addEventListener("DOMContentLoaded", loadComponents);
