@@ -8,7 +8,7 @@ const partners = [
   { name: "Prince Sattam bin Abdulaziz University", logo: "https://s.research.com/images/institutions/160x160/40545.webp" },
   { name: "Islamic University of Technology", logo: "https://upload.wikimedia.org/wikipedia/en/d/d0/Islamic_University_of_Technology_%28coat_of_arms%29.png" },
   { name: "Islamic University of Madinah", logo: "https://upload.wikimedia.org/wikipedia/en/4/48/Islamic_University_of_Madinah_Logo.svg" },
-  { name: "Nguyen Tat Thanh University", logo: "https://vnur.vn/wp-content/uploads/2023/01/19.Nguyen-Tat-Thanh.jpg" }
+  { name: "Nguyen Tat Thanh University", logo: "https://stisd.ntt.edu.vn/wp-content/uploads/2022/11/Logo-DH-Nguyen-Tat-Thanh-821x800.png" }
 ];
 
 // ===============================
