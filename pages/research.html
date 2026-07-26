@@ -1,132 +1,406 @@
 <!-- ================= PAGE: RESEARCH ================= -->
 <div id="page-research" class="page-view py-16">
+  <!-- Hero Section -->
   <div class="bg-brand-900 text-white py-16 mb-16 mt-[-4rem]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 class="text-4xl font-bold mb-4">Research Themes</h1>
       <p class="text-xl text-brand-100 max-w-3xl">
-        The lab pursues integrated themes across computer science, engineering,
-        and environmental sustainability.
+        The lab pursues integrated themes across computer science, engineering, and environmental sustainability. Explore our active research scopes and published works below.
       </p>
     </div>
   </div>
 
+  <!-- Main Grid Container -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Theme 1 -->
-      <div
-        class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-brand-500 hover:shadow-xl transition-all duration-300"
-      >
-        <div
-          class="w-14 h-14 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-6"
-        >
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+
+      <!-- ================= THEME 1 ================= -->
+      <div class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-brand-500 hover:shadow-xl transition-all duration-300">
+        <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-6">
           <i data-lucide="code" class="w-7 h-7"></i>
         </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">
-          Green Software Design
-        </h3>
-        <p class="text-gray-600 text-lg leading-relaxed">
-          Energy profiling frameworks for compilation and execution;
-          carbon-aware application scheduling; and algorithmic complexity
-          optimization targeted specifically at reducing CPU and memory power
-          footprints.
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">1. Green Software Design</h3>
+        <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+          Energy profiling frameworks, carbon-aware application scheduling, and algorithmic complexity optimization targeted at reducing CPU and memory power footprints.
         </p>
+
+        <!-- Sub-themes & Papers Accordion -->
+        <details class="group border-t border-gray-100 pt-4">
+          <summary class="flex justify-between items-center cursor-pointer text-sm font-semibold text-brand-600 hover:text-brand-700 list-none">
+            <span>View Scopes & Papers</span>
+            <span class="transition-transform duration-200 group-open:rotate-180">▼</span>
+          </summary>
+
+          <div class="mt-4 space-y-4 text-xs text-gray-700">
+            <!-- Subtheme a -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">a. Energy profiling and measurement of software systems</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Python Under the Microscope: A Comparative Energy Analysis of Execution Methods</li>
+                <li>GreenPy: evaluating application-level energy efficiency in Python for green computing</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme b -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">b. Energy-aware algorithms and data structures</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Energy-Efficient Software Development Through Algorithm Optimization</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme c -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">c. Compiler and runtime optimization</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Python Under the Microscope: A Comparative Energy Analysis of Execution Methods</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme d -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">d. Carbon-aware resource scheduling</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>GLOPS: A hybrid approach for enhanced scheduling in cloud computing environments via machine learning-based process</li>
+                <li>A machine learning approach for predicting efficient CPU scheduling algorithm</li>
+                <li>Energy Aware Scheduling and Resource Allocation for Virtual Machine</li>
+                <li>GEECO: Green data centers for energy optimization and carbon footprint reduction</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme e -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">e. Sustainable software engineering</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>GreenAI: A comparative analysis of environmental efficiency in llm-generated code</li>
+                <li>Design and Functional Implementation of Green Data Center</li>
+              </ul>
+            </div>
+          </div>
+        </details>
       </div>
 
-      <!-- Theme 2 -->
-      <div
-        class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-brand-500 hover:shadow-xl transition-all duration-300"
-      >
-        <div
-          class="w-14 h-14 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-6"
-        >
+      <!-- ================= THEME 2 ================= -->
+      <div class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-brand-500 hover:shadow-xl transition-all duration-300">
+        <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-6">
           <i data-lucide="cpu" class="w-7 h-7"></i>
         </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">
-          Green Hardware-based System Design
-        </h3>
-        <p class="text-gray-600 text-lg leading-relaxed">
-          Low-power SoC architectures, power-gating strategies, and
-          circuit-level energy harvesting optimization for sustainable edge
-          infrastructure and renewable-integrated server deployments.
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">2. Green Hardware-Based System Design</h3>
+        <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+          Low-power SoC architectures, power-gating strategies, and circuit-level energy harvesting optimization for sustainable edge infrastructure.
         </p>
+
+        <!-- Sub-themes & Papers Accordion -->
+        <details class="group border-t border-gray-100 pt-4">
+          <summary class="flex justify-between items-center cursor-pointer text-sm font-semibold text-brand-600 hover:text-brand-700 list-none">
+            <span>View Scopes & Papers</span>
+            <span class="transition-transform duration-200 group-open:rotate-180">▼</span>
+          </summary>
+
+          <div class="mt-4 space-y-4 text-xs text-gray-700">
+            <!-- Subtheme a -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">a. Low-power embedded system design</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>A Comparative Analysis for Optimizing Machine Learning Model Deployment in IoT Devices</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme b -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">b. Energy-efficient System-on-Chip (SoC) architectures</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Energy-Efficient Architecture for Optimized IoT Data Transmission from Edge to Cloud</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme c -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">c. Power management and hardware optimization</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Eco-Friendly Functional Data Storage Design: A Path to Sustainable Computing</li>
+                <li>Design and Functional Implementation of Green Data Center</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme d -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">d. FPGA-based energy-efficient computing</span>
+              <p class="text-gray-400 italic">No papers explicitly identifying FPGA use were found.</p>
+            </div>
+
+            <!-- Subtheme e -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">e. Edge and IoT hardware systems</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Energy-Efficient Architecture for Optimized IoT Data Transmission from Edge to Cloud</li>
+              </ul>
+            </div>
+          </div>
+        </details>
       </div>
 
-      <!-- Theme 3 -->
-      <div
-        class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-brand-500 hover:shadow-xl transition-all duration-300"
-      >
-        <div
-          class="w-14 h-14 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-6"
-        >
+      <!-- ================= THEME 3 ================= -->
+      <div class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-brand-500 hover:shadow-xl transition-all duration-300">
+        <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-6">
           <i data-lucide="brain" class="w-7 h-7"></i>
         </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">
-          Green AI for Sustainability
-        </h3>
-        <p class="text-gray-600 text-lg leading-relaxed">
-          Carbon-efficient model training and inference pipelines; deep learning
-          compression techniques such as quantization and pruning; and
-          lightweight neural architectures optimized for constrained edge
-          devices.
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">3. Green AI for Sustainability</h3>
+        <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+          Carbon-efficient model training pipelines, deep learning compression techniques, and lightweight neural architectures for edge devices.
         </p>
+
+        <!-- Sub-themes & Papers Accordion -->
+        <details class="group border-t border-gray-100 pt-4">
+          <summary class="flex justify-between items-center cursor-pointer text-sm font-semibold text-brand-600 hover:text-brand-700 list-none">
+            <span>View Scopes & Papers</span>
+            <span class="transition-transform duration-200 group-open:rotate-180">▼</span>
+          </summary>
+
+          <div class="mt-4 space-y-4 text-xs text-gray-700">
+            <!-- Subtheme a -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">a. TinyML and edge intelligence</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>A Comparative Analysis for Optimizing Machine Learning Model Deployment in IoT Devices</li>
+                <li>Enabling pandemic-resilient healthcare: Narrowband Internet of Things and edge intelligence for real-time monitoring</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme b -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">b. Model compression, pruning, and quantization</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Toward lightweight diabetic retinopathy classification: A knowledge distillation approach for resource-constrained</li>
+                <li>A Comparative Analysis for Optimizing Machine Learning Model Deployment in IoT Devices</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme c -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">c. Energy-efficient machine learning</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>GreenAI: A comparative analysis of environmental efficiency in llm-generated code</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme d -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">d. Federated and distributed learning</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Distributed Training of Large-Scale Deep Learning Models in Commodity Hardware</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme e -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">e. AI for Sustainable Development Goals (SDGs)</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Smart E-Waste Recycling Using AI and Blockchain: Enabling Sustainable Resource Recovery for Sustainable Power</li>
+              </ul>
+            </div>
+          </div>
+        </details>
       </div>
 
-      <!-- Theme 4 -->
-      <div
-        class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-brand-500 hover:shadow-xl transition-all duration-300"
-      >
-        <div
-          class="w-14 h-14 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-6"
-        >
+      <!-- ================= THEME 4 ================= -->
+      <div class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-brand-500 hover:shadow-xl transition-all duration-300">
+        <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-6">
           <i data-lucide="recycle" class="w-7 h-7"></i>
         </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">
-          Green E-Waste Management
-        </h3>
-        <p class="text-gray-600 text-lg leading-relaxed">
-          Quantitative lifecycle assessment (LCA) protocols for enterprise
-          computing assets, alongside computer-vision-driven automated
-          classification models (e.g., ElectroSortNet) for physical component
-          recycling pipelines.
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">4. Green E-Waste Management</h3>
+        <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+          Quantitative lifecycle assessment protocols and computer-vision automated classification models for physical e-waste recycling.
         </p>
+
+        <!-- Sub-themes & Papers Accordion -->
+        <details class="group border-t border-gray-100 pt-4">
+          <summary class="flex justify-between items-center cursor-pointer text-sm font-semibold text-brand-600 hover:text-brand-700 list-none">
+            <span>View Scopes & Papers</span>
+            <span class="transition-transform duration-200 group-open:rotate-180">▼</span>
+          </summary>
+
+          <div class="mt-4 space-y-4 text-xs text-gray-700">
+            <!-- Subtheme a -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">a. AI-based e-waste classification</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Optimizing e-waste recycling through categorization</li>
+                <li>Smart E-Waste Recycling Using AI and Blockchain: Enabling Sustainable Resource Recovery for Sustainable Power</li>
+                <li>EcoClassNet: A Lightweight CNN for Real-Time E-Waste Device Classification</li>
+                <li>ElectroSortNet: a novel CNN approach for E-waste classification and IoT-Driven separation system</li>
+                <li>E-waste classification using pre-trained deep learning CNN model</li>
+                <li>Ewastenet: A two-stream data efficient image transformer approach for e-waste classification</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme b -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">b. Computer vision for automated waste sorting</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>WasteSortBot: An Innovative Solution for Multi-Categorical Waste Separator Bin Using Vision-Based Control With Robot</li>
+                <li>Automated Waste Management: A Deep Learning and Cloud Based Food & Plastic Waste Separator Bin</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme c -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">c. Electronic product lifecycle assessment</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>An IoT-and cloud-based e-waste management system for resource reclamation with a data-driven decision-making</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme d -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">d. Circular economy and sustainable electronics</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Smart E-Waste Recycling Using AI and Blockchain: Enabling Sustainable Resource Recovery for Sustainable Power</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme e -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">e. Data-driven recycling and resource recovery</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>An IoT-and cloud-based e-waste management system for resource reclamation with a data-driven decision-making</li>
+              </ul>
+            </div>
+          </div>
+        </details>
       </div>
 
-      <!-- Theme 5 -->
-      <div
-        class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-brand-500 hover:shadow-xl transition-all duration-300"
-      >
-        <div
-          class="w-14 h-14 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-6"
-        >
+      <!-- ================= THEME 5 ================= -->
+      <div class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-brand-500 hover:shadow-xl transition-all duration-300">
+        <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-6">
           <i data-lucide="layers" class="w-7 h-7"></i>
         </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">Green CPS Design</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">
-          Energy-efficient Cyber-Physical Systems featuring power-aware
-          closed-loop control loops, low-power sensor telemetry, and optimized
-          NB-IoT communications protocols for smart grid utilities.
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">5. Green CPS Design</h3>
+        <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+          Energy-efficient Cyber-Physical Systems featuring power-aware closed-loop control, low-power telemetry, and optimized IoT protocols.
         </p>
+
+        <!-- Sub-themes & Papers Accordion -->
+        <details class="group border-t border-gray-100 pt-4">
+          <summary class="flex justify-between items-center cursor-pointer text-sm font-semibold text-brand-600 hover:text-brand-700 list-none">
+            <span>View Scopes & Papers</span>
+            <span class="transition-transform duration-200 group-open:rotate-180">▼</span>
+          </summary>
+
+          <div class="mt-4 space-y-4 text-xs text-gray-700">
+            <!-- Subtheme a -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">a. Low-power sensing and embedded sensing systems</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>IoT-based object-detection system to safeguard endangered animals and bolster agricultural farm security</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme b -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">b. Energy-aware wireless communication</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Energy-Efficient Architecture for Optimized IoT Data Transmission from Edge to Cloud</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme c -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">c. Resource-efficient IoT systems</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Optimizing cloud-fog workloads: a budget aware dynamic scheduling solution</li>
+                <li>Safe Trax: Smart collision prediction and alert system using IoT for sustainable traffic safety</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme d -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">d. Adaptive monitoring and control</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Green-IoT Based Automated Field Maintenance System</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme e -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">e. Smart infrastructure and environmental sensing</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Safe Trax: Smart collision prediction and alert system using IoT for sustainable traffic safety</li>
+                <li>IoT-based object-detection system to safeguard endangered animals and bolster agricultural farm security</li>
+              </ul>
+            </div>
+          </div>
+        </details>
       </div>
 
-      <!-- Theme 6 -->
-      <div
-        class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-brand-500 hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-brand-50"
-      >
-        <div
-          class="w-14 h-14 bg-brand-600 text-white rounded-xl flex items-center justify-center mb-6"
-        >
+      <!-- ================= THEME 6 ================= -->
+      <div class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-brand-500 hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-brand-50">
+        <div class="w-14 h-14 bg-brand-600 text-white rounded-xl flex items-center justify-center mb-6">
           <i data-lucide="combine" class="w-7 h-7"></i>
         </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">
-          Green Interdisciplinary Domains
-        </h3>
-        <p class="text-gray-700 text-lg leading-relaxed">
-          Deployment of green ICT architectures within healthcare delivery
-          (Wireless Body Area Networks), precision environmental tracking, and
-          multi-objective optimization algorithms mapped to UN Sustainable
-          Development Goals (SDGs).
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">6. Green Interdisciplinary Domains</h3>
+        <p class="text-gray-700 text-sm mb-6 leading-relaxed">
+          Deployment of green ICT architectures within healthcare delivery, precision environmental tracking, and multi-objective SDG optimization.
         </p>
+
+        <!-- Sub-themes & Papers Accordion -->
+        <details class="group border-t border-gray-100 pt-4">
+          <summary class="flex justify-between items-center cursor-pointer text-sm font-semibold text-brand-600 hover:text-brand-700 list-none">
+            <span>View Scopes & Papers</span>
+            <span class="transition-transform duration-200 group-open:rotate-180">▼</span>
+          </summary>
+
+          <div class="mt-4 space-y-4 text-xs text-gray-700">
+            <!-- Subtheme a -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">a. Smart healthcare and wireless health monitoring</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Monkeypox Detection and Classification Using Deep Learning With Ensemble Method and Attention Mechanisms</li>
+                <li>ECG-based heart arrhythmia classification using feature engineering and a hybrid stacked machine learning</li>
+                <li>Identifying key indicators to develop a novel mobile application for early screening of postpartum depression</li>
+                <li>Securing Wireless Body Area Networks data transmission with machine learning</li>
+                <li>Enabling pandemic-resilient healthcare: Narrowband Internet of Things and edge intelligence for real-time monitoring</li>
+                <li>Early Prediction Model of Macrosomia Using Machine Learning for Clinical Decision Support</li>
+                <li>UAVs in green health care for energy efficiency and real-time data transmission</li>
+                <li>An integrated scalable framework for cloud and IoT based green healthcare system</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme b -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">b. Green Workplace and sustainability</span>
+              <p class="text-gray-400 italic">No specific paper titles identifying "Green Workplace" were found in the provided list.</p>
+            </div>
+
+            <!-- Subtheme c -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">c. Environmental monitoring and climate sensing</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Combined Impact of Climate Change, Local Hazards, and COVID-19 Increases Child Marriage Risks in Char Land</li>
+                <li>Satellite-Based Environmental Monitoring for Sustainable Well-Being</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme d -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">d. Precision agriculture and smart farming</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>IoT-based object-detection system to safeguard endangered animals and bolster agricultural farm security</li>
+                <li>Green-IoT Based Automated Field Maintenance System</li>
+              </ul>
+            </div>
+
+            <!-- Subtheme e -->
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+              <span class="font-bold text-gray-900 block mb-1">e. Disaster resilience and community sensing</span>
+              <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                <li>Combined Impact of Climate Change, Local Hazards, and COVID-19 Increases Child Marriage Risks in Char Land</li>
+              </ul>
+            </div>
+          </div>
+        </details>
       </div>
+
     </div>
   </div>
 </div>
